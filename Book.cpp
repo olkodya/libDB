@@ -32,11 +32,11 @@ const string &Book::getPublishPlace() const {
     return publishPlace;
 }
 
-const string &Book::getPages() const {
+const int &Book::getPages() const {
     return pages;
 }
 
-const string &Book::getPrice() const {
+const double &Book::getPrice() const {
     return price;
 }
 
@@ -64,10 +64,10 @@ void Book::setPublishPlace(const string &publishPlace) {
     Book::publishPlace = publishPlace;
 }
 
-void Book::setPages(const string &pages) {
+void Book::setPages(const int &pages) {
     Book::pages = pages;
 }
 
-void Book::setPrice(const string &price) {
+void Book::setPrice(const double &price) {
     Book::price = price;
 }

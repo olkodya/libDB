@@ -8,9 +8,8 @@ DataBase::DataBase(const string &dsn, const string &user, const string &password
                                                                                     password(password) {
     connect();
     createTables();
-
-
 }
+
 
 void DataBase::connect() {
     SQLRETURN ret;
@@ -77,7 +76,8 @@ void DataBase::createTables() {
                  ");");
 }
 
-SQLHSTMT DataBase::executeQuery(string query) {
+
+SQLHSTMT DataBase::executeQuery(const string &query) {
     SQLRETURN ret;
     ret = SQLAllocHandle(SQL_HANDLE_STMT, dbc, &stmt); // Выделение памяти для statement
     if (ret != SQL_SUCCESS) {
@@ -85,16 +85,15 @@ SQLHSTMT DataBase::executeQuery(string query) {
         return nullptr;
     }
     ret = SQLExecDirect(stmt, (SQLCHAR *) query.c_str(), SQL_NTS);
-    if(ret == SQL_SUCCESS) {
+    if (ret == SQL_SUCCESS || ret == SQL_ROW_SUCCESS_WITH_INFO) {
         return stmt;
-    }else {
+    } else {
+        cout<< "something bad";
         return nullptr;
     }
 }
 
 vector<vector<string>> DataBase::getResults() {
-
-
     return vector<vector<string>>();
 }
 

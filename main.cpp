@@ -1,8 +1,7 @@
 #include <iostream>
 #include "DataBase.h"
-
-
-
+#include "Book.h"
+#include "BookMapper.h"
 
 
 int main()
@@ -41,5 +40,15 @@ int main()
 
 DataBase dataBase ("PostgreSQL35W", "kodya", "123");
 //dataBase.connect();
-
+Book book ;
+book.setAuthor("Stephen King");
+book.setPrice(123);
+book.setIsbn("12347");
+book.setPages(12);
+book.setPublisher("fsf");
+book.setPublishPlace("fsdssf");
+book.setPublishYear("2002");
+book.setBookName("Green Mile");
+BookMapper bookMapper (dataBase);
+bookMapper.save(book);
 }

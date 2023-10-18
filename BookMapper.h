@@ -7,9 +7,17 @@
 
 
 #include "Book.h"
+#include "DataBase.h"
 
 class BookMapper {
-    void update(Book book);
+public:
+    BookMapper(DataBase &db);
+    void update(Book &book);
+    void save(Book &book);
+    vector<Book> getAll();
+    Book getByIsbn(string isbn);
+private:
+    DataBase& db;
 
 };
 

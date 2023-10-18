@@ -23,9 +23,9 @@ public:
 
     void setPublishPlace(const string &publishPlace);
 
-    void setPages(const string &pages);
+    void setPages(const int &pages);
 
-    void setPrice(const string &price);
+    void setPrice(const double &price);
 
     ~Book();
 
@@ -41,9 +41,9 @@ public:
 
     const string &getPublishPlace() const;
 
-    const string &getPages() const;
+    const int & getPages() const;
 
-    const string &getPrice() const;
+    const double & getPrice() const;
 
 private:
     string isbn;
@@ -52,8 +52,8 @@ private:
     string publisher;
     string publishYear;
     string publishPlace;
-    string pages;
-    string price;
+    int pages;
+    double price;
 };
 
 

@@ -19,7 +19,7 @@ public:
     void connect();
     vector<vector<string>> getResults();
     void createTables();
-    SQLHSTMT executeQuery(string query);
+    SQLHSTMT executeQuery(const string& query);
 
 private:
     string dsn;
@@ -28,10 +28,6 @@ private:
     SQLHENV env;
     SQLHDBC dbc;
     SQLHSTMT stmt;
-
-
-
-
 };
 
 
