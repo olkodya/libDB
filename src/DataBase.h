@@ -5,7 +5,7 @@
 #ifndef LIBRARYAPP_DATABASE_H
 #define LIBRARYAPP_DATABASE_H
 #include <iostream>
-#include <Windows.h>
+#include <windows.h>
 #include <sql.h>
 #include <sqlext.h>
 #include<sqltypes.h>

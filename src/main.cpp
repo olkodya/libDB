@@ -1,7 +1,7 @@
 #include <iostream>
 #include "DataBase.h"
-#include "Book.h"
-#include "BookMapper.h"
+#include "entities/Book.h"
+#include "mappers/BookMapper.h"
 
 
 int main() {

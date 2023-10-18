@@ -6,8 +6,8 @@
 #define LIBRARYAPP_BOOKMAPPER_H
 
 
-#include "Book.h"
-#include "DataBase.h"
+#include "../entities/Book.h"
+#include "../DataBase.h"
 
 class BookMapper {
 public:
