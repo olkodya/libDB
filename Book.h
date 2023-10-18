@@ -4,7 +4,9 @@
 
 #ifndef LIBRARYAPP_BOOK_H
 #define LIBRARYAPP_BOOK_H
+
 #include <iostream>
+
 using namespace std;
 
 class Book {
@@ -41,9 +43,9 @@ public:
 
     const string &getPublishPlace() const;
 
-    const int & getPages() const;
+    const int &getPages() const;
 
-    const double & getPrice() const;
+    const double &getPrice() const;
 
 private:
     string isbn;
@@ -55,8 +57,6 @@ private:
     int pages;
     double price;
 };
-
-
 
 
 #endif //LIBRARYAPP_BOOK_H

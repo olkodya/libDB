@@ -4,8 +4,7 @@
 #include "BookMapper.h"
 
 
-int main()
-{
+int main() {
     setlocale(LC_ALL, "Russian");
 
 //    SQLHENV henv;
@@ -38,17 +37,17 @@ int main()
 //
 //    SQLAllocHandle(SQL_HANDLE_STMT, hdbc, &hstmt);
 
-DataBase dataBase ("PostgreSQL35W", "kodya", "123");
+    DataBase dataBase("PostgreSQL35W", "kodya", "123");
 //dataBase.connect();
-Book book ;
-book.setAuthor("Stephen King");
-book.setPrice(123);
-book.setIsbn("12347");
-book.setPages(12);
-book.setPublisher("fsf");
-book.setPublishPlace("fsdssf");
-book.setPublishYear("2002");
-book.setBookName("Green Mile");
-BookMapper bookMapper (dataBase);
-bookMapper.save(book);
+    Book book;
+    book.setAuthor("Stephen King");
+    book.setPrice(123);
+    book.setIsbn("12347");
+    book.setPages(12);
+    book.setPublisher("fsf");
+    book.setPublishPlace("fsdssf");
+    book.setPublishYear("2002");
+    book.setBookName("Green Mile");
+    BookMapper bookMapper(dataBase);
+    bookMapper.save(book);
 }
