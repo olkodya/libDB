@@ -1,21 +1,7 @@
 #include <iostream>
-#include <string>
-#include <Windows.h>
-#include <sql.h>
-#include <sqlext.h>
-#include<sqltypes.h>
 #include "DataBase.h"
 
-#define NAME_LEN 50
-#define PHONE_LEN 50
 
-//SQLCHAR      szName[NAME_LEN], szPhone[PHONE_LEN];
-
-
-void createTables() {
-
-
-}
 
 
 
@@ -54,6 +40,6 @@ int main()
 //    SQLAllocHandle(SQL_HANDLE_STMT, hdbc, &hstmt);
 
 DataBase dataBase ("PostgreSQL35W", "kodya", "123");
-dataBase.connect();
+//dataBase.connect();
 
 }

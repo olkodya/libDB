@@ -9,14 +9,17 @@
 #include <sql.h>
 #include <sqlext.h>
 #include<sqltypes.h>
+#include <vector>
+
 using namespace std;
 
 class DataBase {
 public:
     DataBase(const string &dsn, const string &user, const string &password);
     void connect();
+    vector<vector<string>> getResults();
     void createTables();
-    void executeQuery(string query);
+    SQLHSTMT executeQuery(string query);
 
 private:
     string dsn;
