@@ -6,7 +6,8 @@
 #define LIBRARYAPP_BOOK_H
 
 #include <iostream>
-
+#include "Publisher.h"
+#include <iomanip>
 using namespace std;
 
 class Book {
@@ -19,15 +20,16 @@ public:
 
     void setAuthor(const string &author);
 
-    void setPublisher(const string &publisher);
+    void setPublisher(Publisher publisher);
 
-    void setPublishYear(const string &publishYear);
-
-    void setPublishPlace(const string &publishPlace);
+    void setPublishYear(const int &publishYear);
 
     void setPages(const int &pages);
 
     void setPrice(const double &price);
+
+    void setCopyAmount(const int& copyAmount);
+
 
     ~Book();
 
@@ -37,25 +39,28 @@ public:
 
     const string &getAuthor() const;
 
-    const string &getPublisher() const;
+    Publisher* getPublisher() const;
 
-    const string &getPublishYear() const;
-
-    const string &getPublishPlace() const;
+    const int &getPublishYear() const;
 
     const int &getPages() const;
 
     const double &getPrice() const;
 
+    const int& getCopyAmount() const;
+
+    void print(int i);
+
+
 private:
     string isbn;
     string book_name;
     string author;
-    string publisher;
-    string publishYear;
-    string publishPlace;
+    Publisher* publisher;
+    int publishYear;
     int pages;
     double price;
+    int copyAmount;
 };
 
 

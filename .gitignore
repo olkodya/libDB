@@ -1,3 +1,6 @@
 # CLion project files
 .idea
 cmake-build-*
+build
+src/.vs/
+src/CppProperties.json

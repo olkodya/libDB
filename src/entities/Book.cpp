@@ -4,7 +4,14 @@
 
 #include "Book.h"
 
-Book::Book() = default;
+Book::Book() {
+    isbn = " ";
+    book_name = " ";
+    author = " ";
+    publishYear = 0;
+    pages = 0;
+    price = 0;
+};
 
 Book::~Book() = default;
 
@@ -20,17 +27,16 @@ const string &Book::getAuthor() const {
     return author;
 }
 
-const string &Book::getPublisher() const {
+ Publisher *Book::getPublisher() const {
     return publisher;
 }
 
-const string &Book::getPublishYear() const {
+
+
+const int &Book::getPublishYear() const {
     return publishYear;
 }
 
-const string &Book::getPublishPlace() const {
-    return publishPlace;
-}
 
 const int &Book::getPages() const {
     return pages;
@@ -38,6 +44,10 @@ const int &Book::getPages() const {
 
 const double &Book::getPrice() const {
     return price;
+}
+
+const int& Book::getCopyAmount() const {
+    return copyAmount;
 }
 
 void Book::setIsbn(const string &isbn) {
@@ -52,17 +62,20 @@ void Book::setAuthor(const string &author) {
     Book::author = author;
 }
 
-void Book::setPublisher(const string &publisher) {
-    Book::publisher = publisher;
+void Book::setPublisher(Publisher publisher) {
+    this->publisher = new Publisher();
+    this->publisher->setID(publisher.getID());
+    this->publisher->setPlace(publisher.getPlace());
+    this->publisher->setPublisherName(publisher.getPublisherName());
 }
 
-void Book::setPublishYear(const string &publishYear) {
+
+
+void Book::setPublishYear(const int &publishYear) {
     Book::publishYear = publishYear;
 }
 
-void Book::setPublishPlace(const string &publishPlace) {
-    Book::publishPlace = publishPlace;
-}
+
 
 void Book::setPages(const int &pages) {
     Book::pages = pages;
@@ -70,4 +83,13 @@ void Book::setPages(const int &pages) {
 
 void Book::setPrice(const double &price) {
     Book::price = price;
+}
+
+void Book::setCopyAmount(const int& copyAmount) {
+    Book::copyAmount = copyAmount;
+}
+
+void Book::print(int i) {
+    std::cout << std::left << std::setw(5) << i + 1 << std::setw(20) << isbn << std::setw(40)
+        << book_name << std::setw(20) << author << std::setw(20) << publisher->getPublisherName() << std::setw(20) << publisher->getPlace() << std::setw(10) << publishYear << std::setw(10) << pages << std::setw(10) << copyAmount << std::endl;
 }

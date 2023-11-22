@@ -35,15 +35,23 @@ void DataBase::connect() {
 
 void DataBase::createTables() {
     SQLRETURN ret;
+
+    executeQuery("CREATE TABLE IF NOT EXISTS publishers (\n"
+        "    publisher_id serial NOT NULL PRIMARY KEY,\n"
+        "    publisher_name varchar,\n"
+        "    publish_place varchar\n"
+        ");");
+
     executeQuery("CREATE TABLE IF NOT EXISTS books (\n"
                  "    isbn varchar NOT NULL PRIMARY KEY,\n"
                  "    book_name varchar NOT NULL,\n"
                  "    author varchar NOT NULL,\n"
-                 "    publisher varchar,\n"
+                 "    publisher_id int,\n"
                  "    publish_year integer,\n"
-                 "    publish_place varchar,\n"
                  "    pages integer NOT NULL,\n"
-                 "    price numeric NOT NULL\n"
+                 "    price numeric NOT NULL,\n"
+                 "    copies_amount int NOT NULL,\n"
+                 " FOREIGN KEY(publisher_id) REFERENCES publishers(publisher_id)\n"
                  ");");
 
     executeQuery("CREATE TABLE IF NOT EXISTS readers (\n"
@@ -54,15 +62,17 @@ void DataBase::createTables() {
                  "    birth_date date,\n"
                  "    phone_number varchar\n"
                  ");");
+
     executeQuery("CREATE TABLE IF NOT EXISTS copies (\n"
                  "    inventory_num integer NOT NULL PRIMARY KEY,\n"
                  "    isbn varchar NOT NULL,\n"
                  "    reader_card_num integer,\n"
-                 "    borrow_date date,\n"
-                 "    return_date date,\n"
+                 "    borrow_date timestamp,\n"
+                 "    return_date timestamp,\n"
                  "    FOREIGN KEY (isbn) REFERENCES books (isbn),\n"
                  "    FOREIGN KEY (reader_card_num) REFERENCES readers (reader_card_num)\n"
                  ");");
+
     executeQuery("CREATE TABLE IF NOT EXISTS themes (\n"
                  "  theme_id serial NOT NULL PRIMARY KEY,\n"
                  "  theme_name varchar\n"
@@ -88,7 +98,6 @@ SQLHSTMT DataBase::executeQuery(const string &query) {
     if (ret == SQL_SUCCESS || ret == SQL_ROW_SUCCESS_WITH_INFO) {
         return stmt;
     } else {
-        cout<< "something bad";
         return nullptr;
     }
 }
